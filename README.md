@@ -2,7 +2,6 @@
 
 Este é o front-end do Projeto Integrador, construído com **React**, **React Router**, **Chakra UI**, **Vite** e **Vitest**.
 
-
 ## 📦 Tecnologias utilizadas
 
 - [React](https://react.dev/) — Biblioteca principal
@@ -22,16 +21,19 @@ npm install
 ```
 
 ### 2. Configure as variáveis de ambiente
+
 ```
 cp .env.example .env
 ```
 
 ### 3. Inicie o servidor local
+
 ```
 npm run dev
 ```
 
 ### 4. Execute os testes
+
 ```
 npm run test
 ```
