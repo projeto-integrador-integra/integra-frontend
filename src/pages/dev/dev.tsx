@@ -1,5 +1,6 @@
 import { Button } from '@/components/button'
 import { Box } from '@chakra-ui/react'
+import { Title } from 'react-head'
 import { useNavigate } from 'react-router'
 import { OportunidadesList } from './components'
 
@@ -12,9 +13,12 @@ export const Dev = () => {
   }
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
-      <Button onClick={handleLogOut}>Log Out</Button>
-      <OportunidadesList />
-    </Box>
+    <>
+      <Title>Integra | Dev</Title>
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <Button onClick={handleLogOut}>Log Out</Button>
+        <OportunidadesList />
+      </Box>
+    </>
   )
 }

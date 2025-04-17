@@ -1,5 +1,6 @@
 import { Button } from '@/components/button'
 import { Box } from '@chakra-ui/react'
+import { Title } from 'react-head'
 import { useNavigate } from 'react-router'
 import { AdminUsuariosList } from './components'
 
@@ -11,9 +12,13 @@ export const Admin = () => {
     navigate('/')
   }
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
-      <Button onClick={handleLogOut}>Log Out</Button>
-      <AdminUsuariosList />
-    </Box>
+    <>
+      <Title>Integra | Admin</Title>
+
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <Button onClick={handleLogOut}>Log Out</Button>
+        <AdminUsuariosList />
+      </Box>
+    </>
   )
 }

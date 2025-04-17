@@ -1,5 +1,6 @@
 import { Button } from '@/components/button'
 import { Box } from '@chakra-ui/react'
+import { Title } from 'react-head'
 import { useNavigate } from 'react-router'
 
 export const Home = () => {
@@ -11,11 +12,15 @@ export const Home = () => {
   }
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" gap="2">
-      <Button onClick={handleLogIn('/empresa')}>Login Empresa</Button>
-      <Button onClick={handleLogIn('/dev', 'dev')}>Login Dev</Button>
-      <Button onClick={handleLogIn('/dev', 'mentor')}>Login Mentor</Button>
-      <Button onClick={handleLogIn('/admin')}>Login Admin</Button>
-    </Box>
+    <>
+      <Title>Integra</Title>
+
+      <Box display="flex" justifyContent="center" alignItems="center" gap="2">
+        <Button onClick={handleLogIn('/empresa')}>Login Empresa</Button>
+        <Button onClick={handleLogIn('/dev', 'dev')}>Login Dev</Button>
+        <Button onClick={handleLogIn('/dev', 'mentor')}>Login Mentor</Button>
+        <Button onClick={handleLogIn('/admin')}>Login Admin</Button>
+      </Box>
+    </>
   )
 }

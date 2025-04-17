@@ -8,9 +8,9 @@ export const customConfig = defineConfig({
       button: buttonRecipe,
     },
     tokens: {
-      colors: {
-        primary: { value: '#0FEE0F' },
-        secondary: { value: '#EE0F0F' },
+      fonts: {
+        heading: { value: 'Urbanist, sans-serif' },
+        body: { value: 'Inter, sans-serif' },
       },
     },
   },
