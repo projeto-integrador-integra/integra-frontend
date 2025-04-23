@@ -1,4 +1,4 @@
-import { Button } from '@/components/button'
+import { Button } from '@/components/ui/button'
 import { Box } from '@chakra-ui/react'
 import { Title } from 'react-head'
 import { useNavigate } from 'react-router'

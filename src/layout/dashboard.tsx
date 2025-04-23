@@ -12,7 +12,15 @@ export const DashboardLayout = () => {
         height="100vh"
         gap="4"
       >
-        <Box p="8" bg="blue.50" w="100%" textAlign="center" display="flex" justifyContent="center">
+        <Box
+          p="8"
+          bg="blue.50"
+          w="100%"
+          textAlign="center"
+          display="flex"
+          justifyContent="center"
+          gap="1"
+        >
           <Image src="/logo.svg" w="5" h="5" />
           <Heading>Integra</Heading>
         </Box>

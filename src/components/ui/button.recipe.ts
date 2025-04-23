@@ -21,8 +21,15 @@ export const buttonRecipe = defineRecipe({
       sm: { padding: '4', fontSize: '12px' },
       lg: { padding: '8', fontSize: '24px' },
     },
+    isLoading: {
+      true: {
+        opacity: 0.5,
+        pointerEvents: 'none',
+      },
+    },
   },
   defaultVariants: {
     intent: 'primary',
+    isLoading: false,
   },
 })

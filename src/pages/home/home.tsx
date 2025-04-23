@@ -1,25 +1,17 @@
-import { Button } from '@/components/button'
 import { Box } from '@chakra-ui/react'
 import { Title } from 'react-head'
-import { useNavigate } from 'react-router'
+
+import { DevSection, EmpresaSection, Intro, MentorSection } from './components'
 
 export const Home = () => {
-  const navigate = useNavigate()
-
-  const handleLogIn = (type: string, status?: string) => () => {
-    // Handle login logic here
-    navigate(type, { state: { status } })
-  }
-
   return (
     <>
       <Title>Integra</Title>
-
-      <Box display="flex" justifyContent="center" alignItems="center" gap="2">
-        <Button onClick={handleLogIn('/empresa')}>Login Empresa</Button>
-        <Button onClick={handleLogIn('/dev', 'dev')}>Login Dev</Button>
-        <Button onClick={handleLogIn('/dev', 'mentor')}>Login Mentor</Button>
-        <Button onClick={handleLogIn('/admin')}>Login Admin</Button>
+      <Box as="main" display="flex" flexDirection="column" alignItems="center" gap="4">
+        <Intro />
+        <DevSection />
+        <MentorSection />
+        <EmpresaSection />
       </Box>
     </>
   )
