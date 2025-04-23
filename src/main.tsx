@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router'
 import { Provider } from './components/ui/provider.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import { Routers } from './routes/index.tsx'
+import { AuthProvider } from './context/auth.tsx'
 
 const queryClient = new QueryClient()
 
@@ -17,8 +18,10 @@ createRoot(document.getElementById('root')!).render(
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Provider>
-            <Routers />
-            <Toaster />
+            <AuthProvider>
+              <Routers />
+              <Toaster />
+            </AuthProvider>
           </Provider>
         </BrowserRouter>
         {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}

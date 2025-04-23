@@ -1,6 +1,7 @@
 import { Box, Heading } from '@chakra-ui/react'
 
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router'
 
 export const Intro = () => {
   return (
@@ -16,7 +17,9 @@ export const Intro = () => {
         <Heading as="h1" fontSize="2xl" fontWeight="bold">
           Integra
         </Heading>
-        <Button>Login</Button>
+        <Button as={Link} to="/login">
+          Login
+        </Button>
       </Box>
       <Box as="p" mt={4}>
         Integra é uma plataforma que conecta desenvolvedores e mentores para facilitar o aprendizado
