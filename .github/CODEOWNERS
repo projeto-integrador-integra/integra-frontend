@@ -1,0 +1,4 @@
+.github/CODEOWNERS @fer-oshiro
+.github/workflows/deploy.yml @fer-oshiro
+package.json @fer-oshiro
+package-lock.json @fer-oshiro

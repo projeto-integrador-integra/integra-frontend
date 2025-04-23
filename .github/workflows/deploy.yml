@@ -36,7 +36,7 @@ jobs:
 
       - name: Upload Website to S3
         run: |
-          aws s3 sync ./dist s3://${{ secrets.S3_BUCKET_NAME }} --delete --cache-control "no-cache"
+          aws s3 sync ./dist s3://${{ secrets.S3_BUCKET_NAME }}/frontend --delete --cache-control "no-cache"
 
       - name: Invalidate CloudFront cache
         run: |
