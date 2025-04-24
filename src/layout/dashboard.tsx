@@ -4,14 +4,7 @@ import { Outlet } from 'react-router'
 export const DashboardLayout = () => {
   return (
     <Box>
-      <Box
-        display="flex"
-        flexDir="column"
-        justifyContent="center"
-        alignItems="center"
-        height="100vh"
-        gap="4"
-      >
+      <Box display="flex" flexDir="column" justifyContent="center" alignItems="center" gap="4">
         <Box
           p="8"
           bg="blue.50"

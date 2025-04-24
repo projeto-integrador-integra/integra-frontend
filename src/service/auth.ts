@@ -1,17 +1,17 @@
 import { SignInType } from '@/schema/signin.schema'
 import { SignUpType } from '@/schema/signup.schema'
-import { request } from './axios'
+import { api } from './axios'
 
 type SignUpResponse = { message: string }
 
 export const createAccount = async (data: SignUpType) => {
-  return request<SignUpResponse>('post', '/signup', data)
+  return api.post<SignUpResponse>('/signup', data).then((res) => res.data)
 }
 
 export const authenticateUser = async (data: SignInType) => {
-  return request<{ access_token: string }>('post', '/login', data)
+  return api.post<{ access_token: string }>('/login', data).then((res) => res.data)
 }
 
-export const signOut = () => request('post', '/logout')
+export const signOut = () => api.post('/logout').then((res) => res.data)
 
-export const refreshTokens = () => request('post', '/refresh')
+export const refreshTokens = () => api.post('/refresh').then((res) => res.data)

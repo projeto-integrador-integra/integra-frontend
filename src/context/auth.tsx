@@ -3,6 +3,7 @@ import { UserType } from '@/schema/user.schema'
 import { authenticateUser, signOut } from '@/service/auth'
 import { getCurrentUser } from '@/service/user'
 import { createContext, useContext, useState, useEffect } from 'react'
+import { useLocation } from 'react-router'
 
 interface AuthContextType {
   user: UserType | null
@@ -15,12 +16,16 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation()
+  const protectedRoutes = ['/dashboard', '/admin', '/dev', '/empresa']
+
   const [user, setUser] = useState<UserType | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    refresh().finally(() => setLoading(false))
-  }, [])
+    const isProtected = protectedRoutes.some((path) => location.pathname.startsWith(path))
+    if (isProtected) refresh().finally(() => setLoading(false))
+  }, [location.pathname])
 
   const login = async (data: SignInType) => {
     await authenticateUser(data)

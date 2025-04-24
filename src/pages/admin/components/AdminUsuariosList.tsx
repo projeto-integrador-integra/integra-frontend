@@ -1,11 +1,16 @@
+import { UserRole } from '@/constants/user'
 import { Box, Tabs } from '@chakra-ui/react'
 import { useNavigate, useSearchParams } from 'react-router'
+import { DevList } from './DevList'
+import { EmpresaList } from './EmpresaList'
+import { MentorList } from './MentorList'
+import { UsersList } from './UsersList'
 
 export const AdminUsuariosList = () => {
   const navigate = useNavigate()
 
   const [searchParams] = useSearchParams()
-  const tab = searchParams.get('tab') || 'dev'
+  const tab = (searchParams.get('tab') || 'dev') as UserRole | 'users'
   const page = searchParams.get('page') || '1'
 
   const handleTabChange = (tab: string) => {
@@ -13,12 +18,12 @@ export const AdminUsuariosList = () => {
   }
 
   return (
-    <Box>
+    <Box display="flex" flexDir="column" justifyContent="flex-start">
       <Tabs.Root
-        defaultValue="explorar"
-        variant="line"
         value={tab}
         onValueChange={(e) => handleTabChange(e.value)}
+        lazyMount
+        unmountOnExit
       >
         <Tabs.List>
           <Tabs.Trigger value="dev">Dev Iniciante</Tabs.Trigger>
@@ -26,10 +31,20 @@ export const AdminUsuariosList = () => {
           <Tabs.Trigger value="company">Empresas</Tabs.Trigger>
           <Tabs.Trigger value="users">Aprovados</Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="dev">Manage your team members</Tabs.Content>
-        <Tabs.Content value="mentor">Manage your projects</Tabs.Content>
-        <Tabs.Content value="company">Manage your Concluido for freelancers</Tabs.Content>
-        <Tabs.Content value="users">Manage your Aprovados</Tabs.Content>
+        <Box overflow="auto">
+          <Tabs.Content value="dev" maxW="md">
+            <DevList />
+          </Tabs.Content>
+          <Tabs.Content value="mentor">
+            <MentorList />
+          </Tabs.Content>
+          <Tabs.Content value="company">
+            <EmpresaList />
+          </Tabs.Content>
+          <Tabs.Content value="users">
+            <UsersList />
+          </Tabs.Content>
+        </Box>
       </Tabs.Root>
     </Box>
   )
