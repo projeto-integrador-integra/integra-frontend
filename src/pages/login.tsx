@@ -22,11 +22,14 @@ export const Login = () => {
     try {
       const user = await login(data)
       if (!user) throw new Error('User not found')
-      const { role } = user
+      const { role, approvalStatus } = user
 
-      if (role === 'admin') navigate('/admin')
-      if (role === 'company') navigate('/company')
-      if (['dev', 'mentor'].includes(role)) navigate('/dev')
+      if (approvalStatus === 'pending') return navigate('/pending')
+      if (approvalStatus === 'rejected') return navigate('/rejected')
+
+      if (role === 'admin') return navigate('/admin')
+      if (role === 'company') return navigate('/empresa')
+      if (['dev', 'mentor'].includes(role)) return navigate('/dev')
 
       toaster.create({
         title: 'Login successful',
