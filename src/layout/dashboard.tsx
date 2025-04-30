@@ -1,3 +1,4 @@
+import { UserCard } from '@/components/UserCard'
 import { Box, Heading, Image } from '@chakra-ui/react'
 import { Outlet } from 'react-router'
 
@@ -18,7 +19,10 @@ export const DashboardLayout = () => {
           <Heading>Integra</Heading>
         </Box>
         <Box flex="1" width="100%">
-          <Outlet />
+          <Box display="grid" gridTemplateColumns={{ md: '1fr 3fr' }} gap="4" p="8">
+            <UserCard />
+            <Outlet />
+          </Box>
         </Box>
       </Box>
     </Box>
