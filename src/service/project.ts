@@ -1,9 +1,20 @@
-import { ProjectApplyType, ProjectCreationType, ProjectUpdateType } from '@/schema/project.schema'
+import {
+  ListProjectsQueryType,
+  ProjectApplyType,
+  ProjectCreationType,
+  ProjectType,
+  ProjectUpdateType,
+} from '@/schema/project.schema'
 import { request } from './axios'
 
 export const createProject = (data: ProjectCreationType) => request('post', '/projects', { data })
 
-export const getAllProjects = () => request('get', '/projects')
+export const getAllProjects = (params: Partial<ListProjectsQueryType>) =>
+  request<{ projects: ProjectType[]; total: number; limit: number; page: number }>(
+    'get',
+    '/projects',
+    { params }
+  )
 
 export const getUserProjects = () => request('get', '/projects/mine')
 

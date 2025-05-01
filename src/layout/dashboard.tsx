@@ -18,7 +18,7 @@ export const DashboardLayout = () => {
           <Image src="/logo.svg" w="5" h="5" />
           <Heading>Integra</Heading>
         </Box>
-        <Box flex="1" width="100%">
+        <Box flex="1" width="100%" maxW="1200px" mx="auto">
           <Box display="grid" gridTemplateColumns={{ md: '1fr 3fr' }} gap="4" p="8">
             <UserCard />
             <Outlet />

@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import { Title } from 'react-head'
-import { CreateProjectForm } from './components'
+import { CreateProjectForm, ListProject } from './components'
 
 export const Empresa = () => {
   return (
@@ -9,6 +9,7 @@ export const Empresa = () => {
 
       <Box display="flex" flexDir="column" gap="4">
         <CreateProjectForm />
+        <ListProject />
       </Box>
     </>
   )
