@@ -78,3 +78,14 @@ export const ProjectApplySchema = z.object({
 })
 
 export type ProjectApplyType = z.infer<typeof ProjectApplySchema>
+
+export const ListProjectsQuerySchema = z.object({
+  page: z.coerce.number().min(1).default(1),
+  limit: z.coerce.number().min(1).max(100).default(10),
+  search: z.string().optional(),
+  status: z.enum(PROJECT_STATUS).optional(),
+  tags: z.array(z.string()).optional(),
+  needsMentors: z.boolean().optional(),
+  needsDevs: z.boolean().optional(),
+})
+export type ListProjectsQueryType = z.infer<typeof ListProjectsQuerySchema>
