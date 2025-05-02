@@ -1,8 +1,9 @@
-import { useProjects } from '@/service/query/projects'
 import { Box, Separator, Text } from '@chakra-ui/react'
-import { ProjectCard } from './ProjectCard'
-import { ProjectPagination } from './Pagination'
 import { useLocation } from 'react-router'
+
+import { ProjectCard } from '@/components/ProjectCard'
+import { useProjects } from '@/service/query/projects'
+import { ProjectPagination } from './Pagination'
 
 export const ListProject = () => {
   const location = useLocation()
