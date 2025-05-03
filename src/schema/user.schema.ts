@@ -29,6 +29,12 @@ export const UserSchema = z.object({
     })
     .optional()
     .default('pending'),
+  companyId: z.string().uuid({ message: 'ID da empresa inválido.' }).optional(),
+  projects: z.object({
+    pending: z.number().optional(),
+    approved: z.number().optional(),
+    closed: z.number().optional(),
+  }),
 })
 
 export type UserType = z.infer<typeof UserSchema>
