@@ -5,8 +5,10 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { FeedbackCreateSchema, FeedbackCreateType } from '@/schema/feedback.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { submitProjectFeedback } from '@/service/project'
+import { toaster } from '@/components/ui/toaster'
 
-export const Feedback = () => {
+export const Feedback = ({ id }: { id?: string }) => {
   const {
     register,
     handleSubmit,
@@ -15,7 +17,22 @@ export const Feedback = () => {
     resolver: zodResolver(FeedbackCreateSchema),
   })
 
-  const onSubmit = (data: FeedbackCreateType) => {
+  if (!id) return null
+
+  const onSubmit = async (data: FeedbackCreateType) => {
+    try {
+      await submitProjectFeedback(id, data)
+      toaster.success({
+        title: 'Feedback enviado com sucesso',
+        description: 'Obrigado por compartilhar sua experiência!',
+      })
+    } catch (error) {
+      console.error(error)
+      toaster.error({
+        title: 'Erro ao enviar feedback',
+        description: 'Tente novamente mais tarde.',
+      })
+    }
     console.log(data)
   }
 

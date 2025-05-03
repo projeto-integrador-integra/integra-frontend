@@ -14,7 +14,7 @@ export const Contribuindo = () => {
       {data?.projects?.map((project) => (
         <ProjectCard key={project.id} {...project}>
           <Box mt="8" ml="auto" display="flex" gap="4">
-            <Feedback />
+            <Feedback id={project.id} />
             <Leave />
           </Box>
         </ProjectCard>
