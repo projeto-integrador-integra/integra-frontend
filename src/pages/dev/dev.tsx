@@ -6,7 +6,7 @@ export const Dev = () => {
   return (
     <>
       <Title>Integra | Dev</Title>
-      <Box display="flex" justifyContent="center" px="8">
+      <Box display="flex" justifyContent="center" px={{ lgDown: '4', lg: '8' }}>
         <OportunidadesList />
       </Box>
     </>

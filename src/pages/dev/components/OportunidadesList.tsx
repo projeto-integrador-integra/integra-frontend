@@ -24,9 +24,15 @@ export const OportunidadesList = () => {
       w="100%"
     >
       <Tabs.List>
-        <Tabs.Trigger value="explorar">Explorar</Tabs.Trigger>
-        <Tabs.Trigger value="contribuindo">Contribuindo</Tabs.Trigger>
-        <Tabs.Trigger value="concluido">Concluido</Tabs.Trigger>
+        <Tabs.Trigger value="explorar" fontSize={{ lgDown: '0.7rem' }}>
+          Explorar
+        </Tabs.Trigger>
+        <Tabs.Trigger value="contribuindo" fontSize={{ lgDown: '0.7rem' }}>
+          Contribuindo
+        </Tabs.Trigger>
+        <Tabs.Trigger value="concluido" fontSize={{ lgDown: '0.7rem' }}>
+          Concluido
+        </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content value="explorar">
         <Explorar />

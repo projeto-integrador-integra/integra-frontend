@@ -78,7 +78,9 @@ export const ProjectCard = ({
               {members?.length === 0 && (
                 <Table.Row>
                   <Table.Cell colSpan={3} textAlign="center">
-                    <Text color="gray.500">Nenhum voluntário encontrado</Text>
+                    <Text color="gray.500" fontSize={{ sm: 'sm', md: 'lg' }}>
+                      Nenhum voluntário encontrado
+                    </Text>
                   </Table.Cell>
                 </Table.Row>
               )}

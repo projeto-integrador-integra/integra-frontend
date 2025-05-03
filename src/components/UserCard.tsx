@@ -25,8 +25,8 @@ export const UserCard = () => {
   const { logout, user, loading } = useAuth()
 
   return (
-    <Box mx="auto" minW="100%">
-      <Card.Root variant="elevated" borderRadius="md" maxW={{ lg: '400px' }}>
+    <Box mx="auto" minW={{ lgDown: '90vw', lg: '400px' }}>
+      <Card.Root variant="elevated" borderRadius="md" maxW={{ sm: '90vw', lg: '400px' }}>
         <Box
           display="flex"
           justifyContent="center"

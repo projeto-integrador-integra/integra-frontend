@@ -24,7 +24,7 @@ export const Concluido = () => {
         justifyContent="center"
         alignItems="center"
         height="100%"
-        fontSize="2xl"
+        fontSize={{ sm: 'md', lg: '2xl' }}
         color="gray.500"
         mt="8"
       >

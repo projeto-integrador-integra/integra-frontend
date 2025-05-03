@@ -18,9 +18,11 @@ export const DashboardLayout = () => {
         <Heading>INTEGRA</Heading>
       </Box>
       <Box flex="1" width="100%" maxW="1400px" mx="auto">
-        <Box display="grid" gridTemplateColumns={{ lg: '1fr 2fr' }} gap="4" p="8">
+        <Box display="flex" flexDir={{ lgDown: 'column', lg: 'row' }} gap="4" p="8">
           <UserCard />
-          <Outlet />
+          <Box flex="1" maxW="100%" minW="300px">
+            <Outlet />
+          </Box>
         </Box>
       </Box>
     </Box>
