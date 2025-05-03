@@ -1,5 +1,8 @@
-import { Box, Tabs } from '@chakra-ui/react'
+import { Tabs } from '@chakra-ui/react'
 import { useNavigate, useSearchParams } from 'react-router'
+import { Explorar } from './Explorar'
+import { Contribuindo } from './Contribuindo'
+import { Concluido } from './Concluido'
 
 export const OportunidadesList = () => {
   const navigate = useNavigate()
@@ -13,22 +16,27 @@ export const OportunidadesList = () => {
   }
 
   return (
-    <Box>
-      <Tabs.Root
-        defaultValue="explorar"
-        variant="line"
-        value={tab}
-        onValueChange={(e) => handleTabChange(e.value)}
-      >
-        <Tabs.List>
-          <Tabs.Trigger value="explorar">Explorar</Tabs.Trigger>
-          <Tabs.Trigger value="contribuindo">Contribuindo</Tabs.Trigger>
-          <Tabs.Trigger value="concluido">Concluido</Tabs.Trigger>
-        </Tabs.List>
-        <Tabs.Content value="explorar">Manage your team members</Tabs.Content>
-        <Tabs.Content value="contribuindo">Manage your projects</Tabs.Content>
-        <Tabs.Content value="concluido">Manage your Concluido for freelancers</Tabs.Content>
-      </Tabs.Root>
-    </Box>
+    <Tabs.Root
+      defaultValue="explorar"
+      variant="line"
+      value={tab}
+      onValueChange={(e) => handleTabChange(e.value)}
+      w="100%"
+    >
+      <Tabs.List>
+        <Tabs.Trigger value="explorar">Explorar</Tabs.Trigger>
+        <Tabs.Trigger value="contribuindo">Contribuindo</Tabs.Trigger>
+        <Tabs.Trigger value="concluido">Concluido</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="explorar">
+        <Explorar />
+      </Tabs.Content>
+      <Tabs.Content value="contribuindo">
+        <Contribuindo />
+      </Tabs.Content>
+      <Tabs.Content value="concluido">
+        <Concluido />
+      </Tabs.Content>
+    </Tabs.Root>
   )
 }

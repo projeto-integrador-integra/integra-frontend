@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
 import { toaster } from '@/components/ui/toaster'
 import { apiErrorSchema } from '@/schema/error.schema'
-import { signUpSchema, SignUpType } from '@/schema/signup.schema'
+import { SignUpSchema, SignUpType } from '@/schema/signup.schema'
 import { createAccount } from '@/service/auth'
 
 export const AccessStep = ({ nextStep }: { nextStep: () => void }) => {
@@ -16,7 +16,7 @@ export const AccessStep = ({ nextStep }: { nextStep: () => void }) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<SignUpType>({
-    resolver: zodResolver(signUpSchema),
+    resolver: zodResolver(SignUpSchema),
   })
 
   const onSubmit: SubmitHandler<SignUpType> = async (data) => {

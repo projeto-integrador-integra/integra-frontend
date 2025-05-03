@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const signUpSchema = z.object({
+export const SignUpSchema = z.object({
   email: z.string().email('Informe um e-mail válido'),
   password: z
     .string()
@@ -12,4 +12,4 @@ export const signUpSchema = z.object({
     .max(20, 'A senha deve ter no máximo 20 caracteres.'),
 })
 
-export type SignUpType = z.infer<typeof signUpSchema>
+export type SignUpType = z.infer<typeof SignUpSchema>

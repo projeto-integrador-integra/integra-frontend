@@ -12,6 +12,20 @@ export const buttonRecipe = defineRecipe({
         _hover: { bg: 'blue.600' },
         _active: { bg: 'blue.700' },
       },
+
+      secondary: {
+        bg: 'gray.200',
+        color: 'gray.800',
+        _hover: { bg: 'gray.300' },
+        _active: { bg: 'gray.400' },
+      },
+
+      danger: {
+        bg: 'red.500',
+        color: 'white',
+        _hover: { bg: 'red.600' },
+        _active: { bg: 'red.700' },
+      },
     },
     visual: {
       solid: { color: 'blue.500', bg: 'blue.400' },

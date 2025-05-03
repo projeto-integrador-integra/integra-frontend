@@ -72,9 +72,11 @@ export type ProjectUpdateType = z.infer<typeof ProjectUpdateSchema>
 export const ProjectApplySchema = z.object({
   message: z
     .string()
+    .min(10, { message: 'A mensagem deve ter no mínimo 10 caracteres.' })
     .max(300, { message: 'A mensagem pode ter no máximo 300 caracteres.' })
-    .optional()
-    .transform((val) => (val?.trim() === '' ? undefined : val)),
+    .refine((val) => val.trim() !== '', {
+      message: 'A mensagem não pode estar em branco.',
+    }),
 })
 
 export type ProjectApplyType = z.infer<typeof ProjectApplySchema>
