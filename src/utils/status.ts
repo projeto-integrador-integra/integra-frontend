@@ -1,13 +1,17 @@
 export const statusColor = {
+  draft: {
+    color: 'gray',
+    label: 'RASCUNHO',
+  },
   active: {
     color: 'green',
     label: 'ATIVO',
   },
-  completed: {
+  closed: {
     color: 'blue',
     label: 'CONCLUÍDO',
   },
-  archived: {
+  cancelled: {
     color: 'yellow',
     label: 'ARQUIVADO',
   },

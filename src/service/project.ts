@@ -1,3 +1,4 @@
+import { FeedbackType } from '@/schema/feedback.schema'
 import {
   ListProjectsQueryType,
   ProjectApplyType,
@@ -16,7 +17,19 @@ export const getAllProjects = (params: Partial<ListProjectsQueryType>) =>
     { params }
   )
 
-export const getUserProjects = () => request('get', '/projects/mine')
+export const getExploreProjects = (params: Partial<ListProjectsQueryType>) =>
+  request<{ projects: ProjectType[]; total: number; limit: number; page: number }>(
+    'get',
+    '/projects/explore',
+    { params }
+  )
+
+export const getUserProjects = (params: Partial<ListProjectsQueryType>) =>
+  request<{ projects: ProjectType[]; total: number; limit: number; page: number }>(
+    'get',
+    '/projects/mine',
+    { params }
+  )
 
 export const getProjectById = (id: string) => request('get', `/projects/${id}`)
 
@@ -29,4 +42,5 @@ export const applyToProject = (id: string, data: ProjectApplyType) =>
 export const submitProjectFeedback = (id: string, data: unknown) =>
   request('post', `/projects/${id}/feedback`, { data })
 
-export const getProjectFeedbacks = (id: string) => request('get', `/projects/${id}/feedbacks`)
+export const getProjectFeedbacks = (id: string) =>
+  request<{ feedbacks: FeedbackType[] }>('get', `/projects/${id}/feedbacks`)
