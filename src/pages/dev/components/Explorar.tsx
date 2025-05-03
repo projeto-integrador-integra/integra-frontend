@@ -10,7 +10,7 @@ export const Explorar = () => {
     <Box>
       {data?.projects?.map((project) => (
         <ProjectCard key={project.id} {...project}>
-          <Apply />
+          <Apply id={project.id} />
         </ProjectCard>
       ))}
       <Box

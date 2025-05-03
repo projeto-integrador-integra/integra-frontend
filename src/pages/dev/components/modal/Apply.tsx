@@ -1,12 +1,14 @@
 import { Box, CloseButton, Dialog, Portal, Textarea } from '@chakra-ui/react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { toaster } from '@/components/ui/toaster'
 import { ProjectApplySchema, ProjectApplyType } from '@/schema/project.schema'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { applyToProject } from '@/service/project'
 
-export const Apply = () => {
+export const Apply = ({ id }: { id?: string }) => {
   const {
     handleSubmit,
     register,
@@ -15,7 +17,28 @@ export const Apply = () => {
     resolver: zodResolver(ProjectApplySchema),
   })
 
-  const onSubmit = (data: ProjectApplyType) => {
+  if (!id) return null
+
+  const onSubmit = async (data: ProjectApplyType) => {
+    try {
+      await applyToProject(id, data)
+      toaster.success({
+        title: 'Aplicação enviada com sucesso',
+        description: 'Parabéns! Sua aplicação foi enviada com sucesso.',
+      })
+    } catch (error) {
+      console.error(error)
+      if (error instanceof Error) {
+        toaster.error({
+          title: 'Erro ao enviar a aplicação',
+          description: error.message,
+        })
+      }
+      toaster.error({
+        title: 'Erro ao enviar a aplicação',
+        description: 'Ocorreu um erro ao enviar sua aplicação. Tente novamente mais tarde.',
+      })
+    }
     console.log(data)
   }
 
