@@ -22,7 +22,7 @@ const roles = {
 }
 
 export const UserCard = () => {
-  const { logout, user, loading } = useAuth()
+  const { logout, user } = useAuth()
 
   return (
     <Box mx="auto" minW={{ lgDown: '90vw', lg: '400px' }}>
@@ -91,7 +91,7 @@ export const UserCard = () => {
                 </Text>
               </Box>
             )}
-            {loading && <Skeleton h="3.8rem" w="80%" mt="2" mx="auto" />}
+            {!user?.projects && <Skeleton h="3.8rem" w="80%" mt="2" mx="auto" />}
           </Box>
 
           <Separator my="6" mx="8" borderTopWidth="2px" borderColor="gray.700" />
