@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 import { HeadProvider } from 'react-head'
 import { BrowserRouter } from 'react-router'
 
-import { ColorModeProvider } from './components/ui/color-mode.tsx'
+import { LightMode } from './components/ui/color-mode.tsx'
 import { Provider } from './components/ui/provider.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import { AuthProvider } from './context/auth.tsx'
@@ -18,12 +18,12 @@ createRoot(document.getElementById('root')!).render(
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Provider>
-            <ColorModeProvider forcedTheme="light">
+            <LightMode>
               <AuthProvider>
                 <Routers />
                 <Toaster />
               </AuthProvider>
-            </ColorModeProvider>
+            </LightMode>
           </Provider>
         </BrowserRouter>
         {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
