@@ -4,6 +4,7 @@ import React from 'react'
 import { SignUpContainer, StepComponentProps } from '@/components/signup/SignUpConteiner'
 import { AboutStep } from './step/AboutStep'
 import { AccessStep } from './step/AccessStep'
+import { LightMode } from '../ui/color-mode'
 
 interface SignDialogProps {
   button: React.ReactNode
@@ -30,10 +31,12 @@ export const SignDialog = ({ button, title, img, role }: SignDialogProps) => {
     <Dialog.Root size="lg" placement="center">
       <Dialog.Trigger asChild>{button}</Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <SignUpContainer img={img} title={title} steps={steps} />
-        </Dialog.Positioner>
+        <LightMode>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <SignUpContainer img={img} title={title} steps={steps} />
+          </Dialog.Positioner>
+        </LightMode>
       </Portal>
     </Dialog.Root>
   )

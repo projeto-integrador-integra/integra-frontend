@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { LightMode } from '@/components/ui/color-mode'
 import { toaster } from '@/components/ui/toaster'
 import { updateUserById } from '@/service/user'
 import { Box, CloseButton, Dialog, Portal, Text } from '@chakra-ui/react'
@@ -45,39 +46,41 @@ export const ModalDelete = ({ id, name }: ModalDeleteProps) => {
         </Button>
       </Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <Dialog.Content>
-            <Dialog.Header>
-              <Dialog.Title>Remover usuário da plataforma?</Dialog.Title>
-            </Dialog.Header>
-            <Dialog.Body>
-              <Box display="flex" flexDir="column" gap="4">
-                <Text fontSize="sm" color="gray.500">
-                  Você tem certeza que deseja{' '}
-                  <Text color="red.600" as="span" fontWeight="bold">
-                    remover
-                  </Text>{' '}
-                  o usuário <strong>{name}</strong> da plataforma?
-                </Text>
-                <Button
-                  onClick={onSubmit}
-                  loading={loading}
-                  mt="8"
-                  w="fit-content"
-                  ml="auto"
-                  intent="danger"
-                >
-                  Remover
-                </Button>
-              </Box>
-            </Dialog.Body>
+        <LightMode>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Header>
+                <Dialog.Title>Remover usuário da plataforma?</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body>
+                <Box display="flex" flexDir="column" gap="4">
+                  <Text fontSize="sm" color="gray.500">
+                    Você tem certeza que deseja{' '}
+                    <Text color="red.600" as="span" fontWeight="bold">
+                      remover
+                    </Text>{' '}
+                    o usuário <strong>{name}</strong> da plataforma?
+                  </Text>
+                  <Button
+                    onClick={onSubmit}
+                    loading={loading}
+                    mt="8"
+                    w="fit-content"
+                    ml="auto"
+                    intent="danger"
+                  >
+                    Remover
+                  </Button>
+                </Box>
+              </Dialog.Body>
 
-            <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" variant="ghost" />
-            </Dialog.CloseTrigger>
-          </Dialog.Content>
-        </Dialog.Positioner>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" variant="ghost" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </LightMode>
       </Portal>
     </Dialog.Root>
   )

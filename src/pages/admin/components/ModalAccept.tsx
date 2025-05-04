@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { LightMode } from '@/components/ui/color-mode'
 import { toaster } from '@/components/ui/toaster'
 import { UserRole } from '@/constants/user'
 import { updateUserById } from '@/service/user'
@@ -47,29 +48,31 @@ export const ModalAccept = ({ id, name, role }: ModalAcceptProps) => {
         </Button>
       </Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <Dialog.Content>
-            <Dialog.Header>
-              <Dialog.Title>Aceitar usuário na plataforma?</Dialog.Title>
-            </Dialog.Header>
-            <Dialog.Body>
-              <Box display="flex" flexDir="column" gap="4">
-                <Text fontSize="sm" color="gray.500">
-                  Você tem certeza que deseja aceitar o usuário <strong>{name}</strong> como{' '}
-                  {role === 'dev' ? 'Dev Iniciante' : role === 'mentor' ? 'Mentor' : 'Empresa'}?
-                </Text>
-                <Button onClick={onSubmit} loading={loading} mt="8" w="fit-content" ml="auto">
-                  Enviar
-                </Button>
-              </Box>
-            </Dialog.Body>
+        <LightMode>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Header>
+                <Dialog.Title>Aceitar usuário na plataforma?</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body>
+                <Box display="flex" flexDir="column" gap="4">
+                  <Text fontSize="sm" color="gray.500">
+                    Você tem certeza que deseja aceitar o usuário <strong>{name}</strong> como{' '}
+                    {role === 'dev' ? 'Dev Iniciante' : role === 'mentor' ? 'Mentor' : 'Empresa'}?
+                  </Text>
+                  <Button onClick={onSubmit} loading={loading} mt="8" w="fit-content" ml="auto">
+                    Enviar
+                  </Button>
+                </Box>
+              </Dialog.Body>
 
-            <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" variant="ghost" />
-            </Dialog.CloseTrigger>
-          </Dialog.Content>
-        </Dialog.Positioner>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" variant="ghost" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </LightMode>
       </Portal>
     </Dialog.Root>
   )
