@@ -28,7 +28,7 @@ export const SignDialog = ({ button, title, img, role }: SignDialogProps) => {
   ]
 
   return (
-    <Dialog.Root size="lg" placement="center">
+    <Dialog.Root size="xl" placement="center">
       <Dialog.Trigger asChild>{button}</Dialog.Trigger>
       <Portal>
         <LightMode>

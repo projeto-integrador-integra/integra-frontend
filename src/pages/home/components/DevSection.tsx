@@ -25,7 +25,7 @@ export const DevSection = () => {
           button={<Button variant="outline">Quero Participar</Button>}
           role="dev"
           title="Olá Dev!"
-          img={<Box bg="red.100" />}
+          img={<Image src={learning} />}
         />
       </Box>
       <Box hideBelow="md" minW="50%">

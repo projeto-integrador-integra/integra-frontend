@@ -28,7 +28,7 @@ export const MentorSection = () => {
           button={<Button variant="outline">Quero Mentorar</Button>}
           role="mentor"
           title="Olá Mentor!"
-          img={<Box bg="red.100" />}
+          img={<Image src={webinar} />}
         />
       </Box>
     </Container>

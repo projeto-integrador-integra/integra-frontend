@@ -27,7 +27,7 @@ export const EmpresaSection = () => {
           button={<Button variant="outline">Quero Mandar o meu Projeto</Button>}
           role="company"
           title="Olá Empreendedor!"
-          img={<Box bg="red.100" />}
+          img={<Image src={collab} />}
         />
       </Box>
       <Box hideBelow="md" minW="50%">

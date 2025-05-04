@@ -45,8 +45,8 @@ export const AccessStep = ({ nextStep }: { nextStep: () => void }) => {
 
   return (
     <Box>
-      <Heading as="h2">Preencha aqui com suas informações:</Heading>
-      <Box as="form" onSubmit={handleSubmit(onSubmit)} display="grid" gap="4">
+      <Heading as="h2">Crie sua conta:</Heading>
+      <Box as="form" onSubmit={handleSubmit(onSubmit)} display="grid" gap="4" my="8">
         <Input label="E-mail" error={errors.email?.message} {...register('email')} />
         <Input
           as={PasswordInput}
@@ -54,7 +54,7 @@ export const AccessStep = ({ nextStep }: { nextStep: () => void }) => {
           error={errors.password?.message}
           {...register('password')}
         />
-        <Button type="submit" w="100%" isDisabled={isSubmitting} isLoading={isSubmitting}>
+        <Button mt="8" type="submit" w="100%" isDisabled={isSubmitting} isLoading={isSubmitting}>
           Cadastrar
         </Button>
       </Box>
