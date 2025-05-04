@@ -80,7 +80,7 @@ export const Feedback = ({ id }: { id?: string }) => {
                     error={errors.comment?.message}
                     {...register('comment')}
                   />
-                  <Button type="submit" isLoading={isSubmitting} mt="8" w="fit-content" ml="auto">
+                  <Button type="submit" loading={isSubmitting} mt="8" w="fit-content" ml="auto">
                     Enviar
                   </Button>
                 </Box>

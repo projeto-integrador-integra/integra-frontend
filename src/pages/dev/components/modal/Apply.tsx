@@ -73,7 +73,7 @@ export const Apply = ({ id }: { id?: string }) => {
                     error={errors.message?.message}
                     {...register('message')}
                   />
-                  <Button type="submit" isLoading={isSubmitting} mt="8" w="fit-content" ml="auto">
+                  <Button type="submit" loading={isSubmitting} mt="8" w="fit-content" ml="auto">
                     Enviar
                   </Button>
                 </Box>

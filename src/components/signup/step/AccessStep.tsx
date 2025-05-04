@@ -54,7 +54,7 @@ export const AccessStep = ({ nextStep }: { nextStep: () => void }) => {
           error={errors.password?.message}
           {...register('password')}
         />
-        <Button mt="8" type="submit" w="100%" isDisabled={isSubmitting} isLoading={isSubmitting}>
+        <Button mt="8" type="submit" w="100%" isDisabled={isSubmitting} loading={isSubmitting}>
           Cadastrar
         </Button>
       </Box>
