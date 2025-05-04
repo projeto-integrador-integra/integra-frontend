@@ -26,6 +26,15 @@ export const buttonRecipe = defineRecipe({
         _hover: { bg: 'red.600' },
         _active: { bg: 'red.700' },
       },
+
+      outline: {
+        bg: 'transparent',
+        color: 'blue.800',
+        borderWidth: '1px',
+        borderColor: 'blue.800',
+        _hover: { bg: 'blue.50' },
+        _active: { bg: 'blue.100' },
+      },
     },
     visual: {
       solid: { color: 'blue.500', bg: 'blue.400' },
