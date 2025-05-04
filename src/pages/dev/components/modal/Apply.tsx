@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { toaster } from '@/components/ui/toaster'
 import { ProjectApplySchema, ProjectApplyType } from '@/schema/project.schema'
 import { applyToProject } from '@/service/project'
+import { LightMode } from '@/components/ui/color-mode'
 
 export const Apply = ({ id }: { id?: string }) => {
   const {
@@ -50,38 +51,40 @@ export const Apply = ({ id }: { id?: string }) => {
         </Button>
       </Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <Dialog.Content>
-            <Dialog.Header>
-              <Dialog.Title>Aplicar para a vaga</Dialog.Title>
-            </Dialog.Header>
-            <Dialog.Body>
-              <Box
-                as="form"
-                display="flex"
-                flexDir="column"
-                gap="4"
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <Input
-                  as={Textarea}
-                  label="Como você gostaria de contribuir?"
-                  autoFocus
-                  error={errors.message?.message}
-                  {...register('message')}
-                />
-                <Button type="submit" isLoading={isSubmitting} mt="8" w="fit-content" ml="auto">
-                  Enviar
-                </Button>
-              </Box>
-            </Dialog.Body>
+        <LightMode>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Header>
+                <Dialog.Title>Aplicar para a vaga</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body>
+                <Box
+                  as="form"
+                  display="flex"
+                  flexDir="column"
+                  gap="4"
+                  onSubmit={handleSubmit(onSubmit)}
+                >
+                  <Input
+                    as={Textarea}
+                    label="Como você gostaria de contribuir?"
+                    autoFocus
+                    error={errors.message?.message}
+                    {...register('message')}
+                  />
+                  <Button type="submit" loading={isSubmitting} mt="8" w="fit-content" ml="auto">
+                    Enviar
+                  </Button>
+                </Box>
+              </Dialog.Body>
 
-            <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" variant="ghost" />
-            </Dialog.CloseTrigger>
-          </Dialog.Content>
-        </Dialog.Positioner>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" variant="ghost" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </LightMode>
       </Portal>
     </Dialog.Root>
   )

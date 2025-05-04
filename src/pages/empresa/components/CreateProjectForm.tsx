@@ -74,7 +74,7 @@ export const CreateProjectForm = () => {
           )}
         />
 
-        <Button type="submit" ml="auto" mt="4" px="16" isLoading={isSubmitting}>
+        <Button type="submit" ml="auto" mt="4" px="16" loading={isSubmitting}>
           Enviar
         </Button>
       </Box>

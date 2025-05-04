@@ -63,7 +63,7 @@ export const AboutStep = ({
         rows={5}
         {...register('description')}
       />
-      <Button w="100%" type="submit" isLoading={isSubmitting}>
+      <Button w="100%" type="submit" loading={isSubmitting}>
         Enviar
       </Button>
     </Box>

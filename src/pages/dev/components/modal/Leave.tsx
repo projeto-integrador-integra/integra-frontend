@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { LightMode } from '@/components/ui/color-mode'
 import { Box, CloseButton, Dialog, Portal, Text } from '@chakra-ui/react'
 
 export const Leave = () => {
@@ -10,30 +11,32 @@ export const Leave = () => {
         </Button>
       </Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <Dialog.Content>
-            <Dialog.Header>
-              <Dialog.Title>Sair do Projeto</Dialog.Title>
-            </Dialog.Header>
-            <Dialog.Body>
-              <Text>
-                Tem certeza que deseja sair do projeto? Você não poderá mais ver as atualizações e
-                nem contribuir com o projeto.
-              </Text>
-              <Box display="flex" gap="4" mt="8" ml="auto" w="fit-content">
-                <Button>Sim, quero sair</Button>
-                <Dialog.ActionTrigger asChild>
-                  <Button intent="secondary">Cancelar</Button>
-                </Dialog.ActionTrigger>
-              </Box>
-            </Dialog.Body>
+        <LightMode>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Header>
+                <Dialog.Title>Sair do Projeto</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body>
+                <Text>
+                  Tem certeza que deseja sair do projeto? Você não poderá mais ver as atualizações e
+                  nem contribuir com o projeto.
+                </Text>
+                <Box display="flex" gap="4" mt="8" ml="auto" w="fit-content">
+                  <Button>Sim, quero sair</Button>
+                  <Dialog.ActionTrigger asChild>
+                    <Button intent="secondary">Cancelar</Button>
+                  </Dialog.ActionTrigger>
+                </Box>
+              </Dialog.Body>
 
-            <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" variant="ghost" />
-            </Dialog.CloseTrigger>
-          </Dialog.Content>
-        </Dialog.Positioner>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" variant="ghost" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </LightMode>
       </Portal>
     </Dialog.Root>
   )
