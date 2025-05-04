@@ -1,4 +1,4 @@
-import { Box, Card, Flex, Heading, Image, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Card, Flex, Heading, Image, Text, VStack } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 
@@ -49,8 +49,6 @@ export const Login = () => {
     }
   }
 
-  const isMobile = useBreakpointValue({ base: true, md: false })
-
   return (
     <Flex minH="100vh" direction={{ base: 'column', md: 'row' }}>
       <Flex flex="1" align="center" justify="center" p={{ base: 6, md: 12 }}>
@@ -99,42 +97,40 @@ export const Login = () => {
         </Card.Root>
       </Flex>
 
-      {!isMobile && (
-        <Flex flex="1" align="center" justify="center" bg="#F7FAFC" p="12">
-          <VStack gap="6" textAlign="left" maxW="lg">
-            <Heading fontSize={{ lgDown: '2xl', lg: '4xl' }} fontWeight="bold" w="100%">
-              Bem-vindo ao Integra
-            </Heading>
-            <Text fontSize={{ lgDown: 'sm', lg: 'md' }} w="100%" color="gray.600">
-              Conectamos talentos a projetos com impacto social.
-            </Text>
-            <VStack
-              align="start"
-              gap="2"
-              fontSize={{ lgDown: 'md', lg: 'lg' }}
-              color="gray.700"
-              w="100%"
-            >
-              <Text>• Segurança garantida</Text>
-              <Text>• Agilidade nos processos</Text>
-              <Text>• Comunidade de apoio</Text>
-            </VStack>
-            <Box position="relative" w="full" h="auto" zIndex={1}>
-              <Box
-                position="absolute"
-                bottom="-10"
-                right="5"
-                w="70%"
-                aspectRatio={1}
-                bg="blue.200"
-                borderRadius="full"
-                zIndex={-1}
-              />
-              <Image src={chatting} alt="" mt="6" zIndex={2} />
-            </Box>
+      <Flex flex="1" align="center" justify="center" bg="#F7FAFC" p="12" hideBelow="md">
+        <VStack gap="6" textAlign="left" maxW="lg">
+          <Heading fontSize={{ lgDown: '2xl', lg: '4xl' }} fontWeight="bold" w="100%">
+            Bem-vindo ao Integra
+          </Heading>
+          <Text fontSize={{ lgDown: 'sm', lg: 'md' }} w="100%" color="gray.600">
+            Conectamos talentos a projetos com impacto social.
+          </Text>
+          <VStack
+            align="start"
+            gap="2"
+            fontSize={{ lgDown: 'md', lg: 'lg' }}
+            color="gray.700"
+            w="100%"
+          >
+            <Text>• Segurança garantida</Text>
+            <Text>• Agilidade nos processos</Text>
+            <Text>• Comunidade de apoio</Text>
           </VStack>
-        </Flex>
-      )}
+          <Box position="relative" w="full" h="auto" zIndex={1}>
+            <Box
+              position="absolute"
+              bottom="-10"
+              right="5"
+              w="70%"
+              aspectRatio={1}
+              bg="blue.200"
+              borderRadius="full"
+              zIndex={-1}
+            />
+            <Image src={chatting} alt="" mt="6" zIndex={2} />
+          </Box>
+        </VStack>
+      </Flex>
     </Flex>
   )
 }
