@@ -2,6 +2,11 @@
 import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 
 export const customConfig = defineConfig({
+  globalCss: {
+    'html, body': {
+      scrollBehavior: 'smooth',
+    },
+  },
   theme: {
     tokens: {
       fonts: {
