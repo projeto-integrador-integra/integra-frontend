@@ -1,25 +1,45 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Box, Container, Heading, Image, Text } from '@chakra-ui/react'
 
 import { SignDialog } from '@/components/signup/SignDialog'
 import { Button } from '@/components/ui/button'
+import learning from '@/assets/learning.png'
 
 export const DevSection = () => {
   return (
-    <Box>
-      <Heading>
-        <Text as="span" color="blue.700">
-          Dev
-        </Text>{' '}
-        Section
-      </Heading>
-      <Text>Mentor section content goes here.</Text>
+    <Container
+      as="section"
+      id="dev"
+      p="8"
+      py="2"
+      display="flex"
+      gap="4"
+      alignItems="center"
+      my={{ lg: '20' }}
+    >
+      <Box>
+        <Heading fontSize={{ lgDown: 'xl', lg: '3xl' }} color="blue.900" fontWeight="bold">
+          Sou{' '}
+          <Text as="span" color="blue.700">
+            iniciante
+          </Text>{' '}
+          em tecnologia, como posso participar?
+        </Heading>
+        <Text fontSize={{ lgDown: 'md', lg: 'lg' }} my="8">
+          Se você está começando sua trajetória na área de tecnologia, o Integra é um espaço feito
+          pra você. Aqui, você pode acessar conteúdos, participar de experiências reais e se
+          conectar com profissionais que vão te ajudar a crescer.
+        </Text>
 
-      <SignDialog
-        button={<Button variant="outline">Quero Participar</Button>}
-        role="dev"
-        title="Olá Dev!"
-        img={<Box bg="red.100" />}
-      />
-    </Box>
+        <SignDialog
+          button={<Button variant="outline">Quero Participar</Button>}
+          role="dev"
+          title="Olá Dev!"
+          img={<Box bg="red.100" />}
+        />
+      </Box>
+      <Box hideBelow="md" minW="50%">
+        <Image src={learning} mx="auto" />
+      </Box>
+    </Container>
   )
 }
