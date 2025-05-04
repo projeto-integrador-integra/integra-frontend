@@ -5,6 +5,8 @@ export const customConfig = defineConfig({
   globalCss: {
     'html, body': {
       scrollBehavior: 'smooth',
+      bg: 'white',
+      color: 'gray.800',
     },
   },
   theme: {
