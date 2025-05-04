@@ -6,16 +6,7 @@ import webinar from '@/assets/webinar.png'
 
 export const MentorSection = () => {
   return (
-    <Container
-      as="section"
-      id="mentor"
-      p="8"
-      py="2"
-      display="flex"
-      gap="8"
-      alignItems="center"
-      my={{ lg: '20' }}
-    >
+    <Container as="section" id="mentor" display="flex" gap="8" alignItems="center">
       <Box hideBelow="md" minW="50%">
         <Image src={webinar} mx="auto" />
       </Box>

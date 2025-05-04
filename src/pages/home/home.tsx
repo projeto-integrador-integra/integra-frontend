@@ -11,7 +11,18 @@ export const Home = () => {
       <Box as="main" display="flex" flexDirection="column" alignItems="center">
         <Intro />
         <About />
-        <Box bgImage={`url(${graph})`} bgPos="center" bgRepeat="repeat" bgColor="#EDF2F7" w="100%">
+        <Box
+          bgImage={`url(${graph})`}
+          bgPos="center"
+          bgRepeat="repeat"
+          bgColor="#EDF2F7"
+          w="100%"
+          display="flex"
+          flexDirection="column"
+          p={{ base: '6', lg: '32' }}
+          py={{ base: '16', lg: '16' }}
+          gap={{ base: '16', lg: '12' }}
+        >
           <DevSection />
           <MentorSection />
           <EmpresaSection />

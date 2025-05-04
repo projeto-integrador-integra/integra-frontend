@@ -6,16 +6,7 @@ import learning from '@/assets/learning.png'
 
 export const DevSection = () => {
   return (
-    <Container
-      as="section"
-      id="dev"
-      p="8"
-      py="2"
-      display="flex"
-      gap="4"
-      alignItems="center"
-      my={{ lg: '20' }}
-    >
+    <Container as="section" id="dev" display="flex" gap="8" alignItems="center">
       <Box>
         <Heading fontSize={{ lgDown: 'xl', lg: '3xl' }} color="blue.900" fontWeight="bold">
           Sou{' '}

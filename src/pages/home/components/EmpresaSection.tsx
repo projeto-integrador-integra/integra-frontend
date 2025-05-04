@@ -6,16 +6,7 @@ import collab from '@/assets/collab.png'
 
 export const EmpresaSection = () => {
   return (
-    <Container
-      as="section"
-      id="company"
-      p="8"
-      py="2"
-      display="flex"
-      gap="8"
-      alignItems="center"
-      my={{ lg: '20' }}
-    >
+    <Container as="section" id="company" display="flex" gap="8" alignItems="center">
       <Box>
         <Heading fontSize={{ lgDown: 'xl', lg: '3xl' }} color="blue.900" fontWeight="bold">
           Tenho uma{' '}
@@ -33,7 +24,7 @@ export const EmpresaSection = () => {
         </Text>
 
         <SignDialog
-          button={<Button variant="outline">Quero Participar</Button>}
+          button={<Button variant="outline">Quero Mandar o meu Projeto</Button>}
           role="company"
           title="Olá Empreendedor!"
           img={<Box bg="red.100" />}

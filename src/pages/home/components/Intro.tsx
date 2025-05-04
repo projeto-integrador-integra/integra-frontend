@@ -15,14 +15,7 @@ export const Intro = () => {
       bgRepeat="repeat"
       w="100%"
     >
-      <Container
-        px="8"
-        pb="8"
-        mt={{ lg: '6' }}
-        minH={{ lgDown: 'auto', lg: '100vh' }}
-        display="flex"
-        flexDirection="column"
-      >
+      <Container px="8" pb="8" mt={{ lg: '6' }} minH="100vh" display="flex" flexDirection="column">
         <Box
           as="header"
           display="flex"
@@ -86,7 +79,7 @@ export const Intro = () => {
             </Button>
           </Box>
         </Box>
-        <Box my="auto" mt={{ lgDown: '12' }} display="flex" gap="4" justifyContent="space-between">
+        <Box my="auto" mt={{ lgDown: '16' }} display="flex" gap="4" justifyContent="space-between">
           <Box mt={{ lgDown: '4', lg: '24' }} mx="auto">
             <Heading
               as="h2"
