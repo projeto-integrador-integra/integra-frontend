@@ -43,8 +43,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const logout = async () => {
-    await signOut()
-    setUser(null)
+    setLoading(true)
+    try {
+      await signOut()
+      setUser(null)
+    } catch (error) {
+      console.error('Logout error:', error)
+      setUser(null)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (

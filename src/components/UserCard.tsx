@@ -22,7 +22,7 @@ const roles = {
 }
 
 export const UserCard = () => {
-  const { logout, user } = useAuth()
+  const { logout, user, loading } = useAuth()
 
   return (
     <Box mx="auto" minW={{ lgDown: '90vw', lg: '400px' }}>
@@ -109,6 +109,7 @@ export const UserCard = () => {
           color="red.500"
           borderColor="red"
           fontWeight="bold"
+          loading={loading}
         >
           Sair <LuLogOut size={20} style={{ marginLeft: '4px' }} />
         </Button>
