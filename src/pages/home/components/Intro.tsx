@@ -25,8 +25,8 @@ export const Intro = () => {
           py="8"
           w="100%"
         >
-          <Box display="flex" alignItems="top" gap="2">
-            <Image src="/logo.svg" h="6" />
+          <Box display="flex" alignItems="top" gap={{ base: 1, lg: '2' }} ml="-2">
+            <Image src="/logo.svg" h={{ base: '4', lg: '6' }} />
             <Heading as="h1" fontSize={{ lgDown: 'lg', lg: '3xl' }} fontWeight="bold">
               INTEGRA
             </Heading>
