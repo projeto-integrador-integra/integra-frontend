@@ -18,34 +18,33 @@ export const AdminUsuariosList = () => {
   }
 
   return (
-    <Box display="flex" flexDir="column" justifyContent="flex-start">
-      <Tabs.Root
-        value={tab}
-        onValueChange={(e) => handleTabChange(e.value)}
-        lazyMount
-        unmountOnExit
-      >
-        <Tabs.List>
-          <Tabs.Trigger value="dev">Dev Iniciante</Tabs.Trigger>
-          <Tabs.Trigger value="mentor">Mentores</Tabs.Trigger>
-          <Tabs.Trigger value="company">Empresas</Tabs.Trigger>
-          <Tabs.Trigger value="users">Aprovados</Tabs.Trigger>
-        </Tabs.List>
-        <Box overflow="auto">
-          <Tabs.Content value="dev" maxW="md">
-            <DevList />
-          </Tabs.Content>
-          <Tabs.Content value="mentor">
-            <MentorList />
-          </Tabs.Content>
-          <Tabs.Content value="company">
-            <EmpresaList />
-          </Tabs.Content>
-          <Tabs.Content value="users">
-            <UsersList />
-          </Tabs.Content>
-        </Box>
-      </Tabs.Root>
-    </Box>
+    <Tabs.Root
+      value={tab}
+      onValueChange={(e) => handleTabChange(e.value)}
+      lazyMount
+      unmountOnExit
+      w="100%"
+    >
+      <Tabs.List>
+        <Tabs.Trigger value="dev">Dev Iniciante</Tabs.Trigger>
+        <Tabs.Trigger value="mentor">Mentores</Tabs.Trigger>
+        <Tabs.Trigger value="company">Empresas</Tabs.Trigger>
+        <Tabs.Trigger value="users">Aprovados</Tabs.Trigger>
+      </Tabs.List>
+      <Box overflow="auto">
+        <Tabs.Content value="dev">
+          <DevList />
+        </Tabs.Content>
+        <Tabs.Content value="mentor">
+          <MentorList />
+        </Tabs.Content>
+        <Tabs.Content value="company">
+          <EmpresaList />
+        </Tabs.Content>
+        <Tabs.Content value="users">
+          <UsersList />
+        </Tabs.Content>
+      </Box>
+    </Tabs.Root>
   )
 }

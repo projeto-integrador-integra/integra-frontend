@@ -43,9 +43,11 @@ export const UserCard = () => {
           )}
         </Box>
         <Card.Header>
-          <Text textAlign="center">
-            {user?.name ? user.name : <Skeleton h="1.3rem" w="50%" mx="auto" />}
-          </Text>
+          {user?.name ? (
+            <Text textAlign="center">{user.name}</Text>
+          ) : (
+            <Skeleton h="1rem" w="50%" mx="auto" />
+          )}
           <Heading textAlign="center">
             {user?.role ? roles[user?.role] : <Skeleton h="1.5rem" w="100%" />}
           </Heading>
