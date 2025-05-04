@@ -1,13 +1,25 @@
-import { UserCard } from '@/components/UserCard'
 import { Box, Heading, Image } from '@chakra-ui/react'
 import { Outlet } from 'react-router'
 
+import { UserCard } from '@/components/UserCard'
+import topography from '@/assets/topography.png'
+
 export const DashboardLayout = () => {
   return (
-    <Box display="flex" flexDir="column" justifyContent="center" alignItems="center" gap="4">
+    <Box
+      display="flex"
+      flexDir="column"
+      justifyContent="center"
+      alignItems="center"
+      gap="4"
+      bg="#E2E8F0"
+      minH="100vh"
+      bgImage={`url(${topography})`}
+      bgRepeat="repeat"
+    >
       <Box
         p="8"
-        bg="blue.50"
+        bg="#F7FAFC"
         w="100%"
         textAlign="center"
         display="flex"
