@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { LightMode } from '@/components/ui/color-mode'
 import { toaster } from '@/components/ui/toaster'
 import { UserRole } from '@/constants/user'
+import { queryClient } from '@/service/query/queryClient'
 import { updateUserById } from '@/service/user'
 import { Box, CloseButton, Dialog, Portal, Text } from '@chakra-ui/react'
 import { useState } from 'react'
@@ -24,6 +25,9 @@ export const ModalReject = ({ id, name, role }: ModalRejectProps) => {
       toaster.success({
         title: 'Sucesso',
         description: 'O usuário foi rejeitado com sucesso.',
+      })
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'users',
       })
     } catch (error) {
       console.error('Error submitting form:', error)

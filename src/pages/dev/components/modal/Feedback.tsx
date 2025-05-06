@@ -2,12 +2,13 @@ import { Box, CloseButton, Dialog, Portal, Textarea } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { FeedbackCreateSchema, FeedbackCreateType } from '@/schema/feedback.schema'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { submitProjectFeedback } from '@/service/project'
-import { toaster } from '@/components/ui/toaster'
 import { LightMode } from '@/components/ui/color-mode'
+import { Input } from '@/components/ui/input'
+import { toaster } from '@/components/ui/toaster'
+import { FeedbackCreateSchema, FeedbackCreateType } from '@/schema/feedback.schema'
+import { submitProjectFeedback } from '@/service/project'
+import { queryClient } from '@/service/query/queryClient'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export const Feedback = ({ id }: { id?: string }) => {
   const {
@@ -27,6 +28,23 @@ export const Feedback = ({ id }: { id?: string }) => {
         title: 'Feedback enviado com sucesso',
         description: 'Obrigado por compartilhar sua experiência!',
       })
+      queryClient.setQueryData<{ pending: number; approved: number; closed: number }>(
+        ['projects:summary'],
+        (old) => {
+          if (!old) return old
+          return {
+            ...old,
+            approved: old.approved - 1,
+            closed: old.closed + 1,
+          }
+        }
+      )
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'projects:mine',
+      })
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'projects:summary',
+      })
     } catch (error) {
       console.error(error)
       toaster.error({
@@ -34,7 +52,6 @@ export const Feedback = ({ id }: { id?: string }) => {
         description: 'Tente novamente mais tarde.',
       })
     }
-    console.log(data)
   }
 
   return (

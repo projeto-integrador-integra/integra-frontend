@@ -15,7 +15,7 @@ export const Contribuindo = () => {
         <ProjectCard key={project.id} {...project}>
           <Box mt="8" ml="auto" display="flex" gap="4">
             <Feedback id={project.id} />
-            <Leave />
+            <Leave id={project.id} />
           </Box>
         </ProjectCard>
       ))}

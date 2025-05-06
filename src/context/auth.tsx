@@ -1,8 +1,9 @@
 import { SignInType } from '@/schema/signin.schema'
 import { UserType } from '@/schema/user.schema'
 import { authenticateUser, signOut } from '@/service/auth'
+import { queryClient } from '@/service/query/queryClient'
 import { getCurrentUser } from '@/service/user'
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 
 interface AuthContextType {
@@ -47,6 +48,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await signOut()
       setUser(null)
+      queryClient.clear()
+      queryClient.invalidateQueries()
     } catch (error) {
       console.error('Logout error:', error)
       setUser(null)

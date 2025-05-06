@@ -10,6 +10,9 @@ import { request } from './axios'
 
 export const createProject = (data: ProjectCreationType) => request('post', '/projects', { data })
 
+export const summaryProject = () =>
+  request<{ pending: number; approved: number; closed: number }>('get', '/projects/summary')
+
 export const getAllProjects = (params: Partial<ListProjectsQueryType>) =>
   request<{ projects: ProjectType[]; total: number; limit: number; page: number }>(
     'get',
@@ -44,3 +47,5 @@ export const submitProjectFeedback = (id: string, data: unknown) =>
 
 export const getProjectFeedbacks = (id: string) =>
   request<{ feedbacks: FeedbackType[] }>('get', `/projects/${id}/feedbacks`)
+
+export const leaveProject = (id: string) => request('delete', `/projects/${id}/leave`)
