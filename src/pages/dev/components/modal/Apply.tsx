@@ -8,6 +8,7 @@ import { toaster } from '@/components/ui/toaster'
 import { ProjectApplySchema, ProjectApplyType } from '@/schema/project.schema'
 import { applyToProject } from '@/service/project'
 import { LightMode } from '@/components/ui/color-mode'
+import { queryClient } from '@/service/query/queryClient'
 
 export const Apply = ({ id }: { id?: string }) => {
   const {
@@ -27,6 +28,22 @@ export const Apply = ({ id }: { id?: string }) => {
         title: 'Aplicação enviada com sucesso',
         description: 'Parabéns! Sua aplicação foi enviada com sucesso.',
       })
+      queryClient.setQueryData<{ pending: number; approved: number; closed: number }>(
+        ['projects:summary'],
+        (old) => {
+          if (!old) return old
+          return {
+            ...old,
+            approved: old.approved + 1,
+          }
+        }
+      )
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'projects:explore',
+      })
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'projects:summary',
+      })
     } catch (error) {
       console.error(error)
       if (error instanceof Error) {
@@ -40,7 +57,6 @@ export const Apply = ({ id }: { id?: string }) => {
         description: 'Ocorreu um erro ao enviar sua aplicação. Tente novamente mais tarde.',
       })
     }
-    console.log(data)
   }
 
   return (

@@ -5,6 +5,7 @@ import { toaster } from '@/components/ui/toaster'
 import { apiErrorSchema } from '@/schema/error.schema'
 import { ProjectCreationSchema, ProjectCreationType } from '@/schema/project.schema'
 import { createProject } from '@/service/project'
+import { queryClient } from '@/service/query/queryClient'
 import { Box, Card, Heading, Textarea } from '@chakra-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
@@ -26,6 +27,23 @@ export const CreateProjectForm = () => {
       toaster.success({
         title: 'Projeto criado com sucesso',
         description: 'Seu projeto foi criado com sucesso.',
+      })
+      queryClient.setQueryData<{ pending: number; approved: number; closed: number }>(
+        ['projects:summary'],
+        (old) => {
+          if (!old) return old
+          return {
+            ...old,
+            pending: old.pending + 1,
+          }
+        }
+      )
+
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'projects',
+      })
+      await queryClient.invalidateQueries({
+        predicate: (query) => query.queryKey[0] === 'projects:summary',
       })
       reset()
     } catch (error) {

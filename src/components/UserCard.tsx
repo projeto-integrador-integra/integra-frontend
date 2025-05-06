@@ -5,6 +5,7 @@ import jigsaw from '@/assets/jigsaw.png'
 import { useAuth } from '@/context/auth'
 import { Box, Button, Card, Heading, Image, Separator, Skeleton, Text } from '@chakra-ui/react'
 import { LuLogOut } from 'react-icons/lu'
+import { ProjectSummary } from './ProjectSummary'
 
 const img = {
   dev: Dev,
@@ -63,37 +64,7 @@ export const UserCard = () => {
           </Box>
 
           <Box display="flex" justifyContent="center" alignItems="center" mx="4" gap="4">
-            {user?.projects?.pending !== undefined && (
-              <Box textAlign="center">
-                <Heading color="gray.600" fontSize=".7rem">
-                  EM VERIFICAÇÃO
-                </Heading>
-                <Text fontSize="2rem" color="gray.600" fontWeight="bold">
-                  {user?.projects?.pending}
-                </Text>
-              </Box>
-            )}
-            {user?.projects?.approved !== undefined && (
-              <Box textAlign="center">
-                <Heading color="gray.600" fontSize=".7rem">
-                  EM PROGRESSO
-                </Heading>
-                <Text fontSize="2rem" color="gray.600" fontWeight="bold">
-                  {user?.projects?.approved}
-                </Text>
-              </Box>
-            )}
-            {user?.projects?.closed !== undefined && (
-              <Box textAlign="center">
-                <Heading color="gray.600" fontSize=".7rem">
-                  CONCLUIDOS
-                </Heading>
-                <Text fontSize="2rem" color="gray.600" fontWeight="bold">
-                  {user?.projects?.closed}
-                </Text>
-              </Box>
-            )}
-            {!user?.projects && <Skeleton h="3.8rem" w="80%" mt="2" mx="auto" />}
+            <ProjectSummary />
           </Box>
 
           <Separator my="6" mx="8" borderTopWidth="2px" borderColor="gray.700" />
